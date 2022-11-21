@@ -20,12 +20,12 @@ namespace WinFormsAppDiplom
         {
             InitializeComponent();
             cl1.CreateMyButton(btn1, "не тыкай", this, 50, 50, 120, 50, Click_My_Button);
-            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=port;Database=database,User ID=postgres;Password=password");
+            NpgsqlConnection conn = new NpgsqlConnection("Server=localhost;Port=5432;Database=TestDb,User ID=postgres;Password=admin1");
             conn.Open();
             NpgsqlCommand comm = new NpgsqlCommand();
             comm.Connection = conn;
             comm.CommandType = CommandType.Text;
-            comm.CommandText = "SELECT * FROM Test ";
+            comm.CommandText = "SELECT * FROM sprActivity ";
             NpgsqlDataReader dr = comm.ExecuteReader();
             if (dr.HasRows)
             {
@@ -48,5 +48,6 @@ namespace WinFormsAppDiplom
         {
 
         }
+
     }
 }
