@@ -30,6 +30,7 @@ namespace DataAccessLayer
 
         public OperationType GetObject(int id)
         {
+            string s = "";
             throw new NotImplementedException();
         }
 
