@@ -8,11 +8,11 @@ namespace Model.ModelsSpr
 {
     public class Activity
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string ActivityName { get; set; }    
-        public string objects { get; set; }
-        public int ZoomNumber { get; set; }
+        public string Objects { get; set; }
+        public int NumberOfZoom { get; set; }
         public string ActivityType { get; set; }
-        public string description { get; set; }
+        public string Description { get; set; }
     }
 }

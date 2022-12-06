@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Model.ModelsSpr
 {
-    public class Phones
+    public class Script
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Activity { get; set; }
-        public string PhoneDescription { get; set; }
-
+        public int IdBlocks { get; set; }
+        public int IdPhone { get; set; }
+        public int IdActivity { get; set; }
     }
 }

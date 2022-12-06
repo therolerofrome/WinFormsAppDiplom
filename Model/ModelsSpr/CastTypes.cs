@@ -8,7 +8,7 @@ namespace Model
 {
     public class CastTypes:AbstractSpr
     {
-        public int id { get; set; }
-        public string castname { get; set; }
+        public int IdCastType { get; set; }
+        public string CastName { get; set; }
     }
 }

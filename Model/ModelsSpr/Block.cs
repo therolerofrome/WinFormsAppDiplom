@@ -8,8 +8,8 @@ namespace Model.ModelsSpr
 {
     public class Block
     {
-        int id { get; set; }
-        int idPhone { get; set; }
-        string description { get; set; }
+        int Id { get; set; }
+        int IdPhone { get; set; }
+        string Description { get; set; }
     }
 }

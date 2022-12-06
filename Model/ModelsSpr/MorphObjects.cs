@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Model.ModelsSpr
 {
-    public class OperationType:AbstractSpr
+    public class MorphObjects
     {
         public int Id { get; set; }
-        public string OperationName { get; set; }
+        public int IdMorph{ get; set; }
+        public int ObjectsInMorph { get; set; }
     }
 }

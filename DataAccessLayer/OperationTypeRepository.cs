@@ -20,31 +20,39 @@ namespace DataAccessLayer
 
         public void Create(OperationType obj)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                var sqlQuery = "INSERT INTO sprOperationType (OperationName) VALUES(@OperationName)";
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                var sqlQuery = "DELETE FROM sprOperationType WHERE Id = @id";
+            }
         }
 
         public OperationType GetObject(int id)
         {
-            string s = "";
-            throw new NotImplementedException();
+            using (IDbConnection db = new SqlConnection(connectionString))
+            {
+                return db.Query<OperationType>("SELECT * FROM sprOperationType").FirstOrDefault();
+            }
         }
 
         public List<OperationType> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<OperationType>("SELECT * FROM OperationType").ToList();
+                return db.Query<OperationType>("SELECT * FROM sprOperationType").ToList();
             }
         }
 
         public void Update(OperationType obj)
         {
-            throw new NotImplementedException();
+            var sqlQuery = "UPDATE sprOperationType SET OperationName = @OperationName";
         }
     }
 }
