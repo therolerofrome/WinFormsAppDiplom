@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace DataAccessLayer
 {
-    internal class PhoneRepository : IRepository<Phones>
+    internal class PhoneRepository : IRepository<phones>
     {
         string connectionString = null;
         public PhoneRepository(string conn)
@@ -17,11 +17,11 @@ namespace DataAccessLayer
             connectionString = conn;
         }
 
-        public void Create(Phones obj)
+        public void Create(phones obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "INSERT INTO sprPhone (Name, Activity, PhoneDescription) VALUES(@Name, @MActivity, @PhoneDescription)";
+                var sqlQuery = "INSERT INTO spr_phone (name, Activity, PhoneDescription) VALUES(@name, @MActivity, @PhoneDescription)";
             }
         }
 
@@ -29,29 +29,29 @@ namespace DataAccessLayer
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "DELETE FROM sprPhone WHERE Id = @id";
+                var sqlQuery = "DELETE FROM spr_phone WHERE id = @id";
             }
         }
 
-        public Phones GetObject(int id)
+        public phones GetObject(int id)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Phones>("SELECT * FROM sprPhone").FirstOrDefault();
+                return db.Query<phones>("SELECT * FROM spr_phone").FirstOrDefault();
             }
         }
 
-        public List<Phones> GetObjects()
+        public List<phones> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Phones>("SELECT * FROM sprPhone").ToList();
+                return db.Query<phones>("SELECT * FROM spr_phone").ToList();
             }
         }
 
-        public void Update(Phones obj)
+        public void Update(phones obj)
         {
-            var sqlQuery = "UPDATE sprPhone SET Name = @Name, Activity = @Activity, PhoneDescription = @PhoneDescription";
+            var sqlQuery = "UPDATE spr_phone SET name = @name, activity = @activity, phone_description = @phone_description";
         }
     }
 }

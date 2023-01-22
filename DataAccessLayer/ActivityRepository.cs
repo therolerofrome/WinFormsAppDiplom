@@ -9,14 +9,14 @@ using System.Linq;
 
 namespace DataAccessLayer
 {
-    public class ActivityRepository : IRepository<Activity>
+    public class ActivityRepository : IRepository<activity>
     {
         string connectionString = null;
-        public void Create(Activity obj)
+        public void Create(activity obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "INSERT INTO sprActivity (ActivityName, Objects, NumberOfZoom, ActivityType, Description) VALUES(@ActivityName, @Objects, @NumberOfZoom, @ActivityType, @Description)";
+                var sqlQuery = "INSERT INTO spr_activity (activity_name, objects, number_of_zoom, activity_type, description) VALUES(@activity_name, @objects, @number_of_zoom, @activity_type, @description)";
             }
         }
 
@@ -24,31 +24,31 @@ namespace DataAccessLayer
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "DELETE FROM sprActivity WHERE Id = @id";
+                var sqlQuery = "DELETE FROM spr_activity WHERE id = @id";
             }
         }
 
-        public Activity GetObject(int id)
+        public activity GetObject(int id)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Activity>("SELECT * FROM sprActivity").FirstOrDefault();
+                return db.Query<activity>("SELECT * FROM spr_activity").FirstOrDefault();
             }
         }
 
-        public List<Activity> GetObjects()
+        public List<activity> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Activity>("SELECT * FROM sprActivity").ToList();
+                return db.Query<activity>("SELECT * FROM spr_activity").ToList();
             }
         }
 
-        public void Update(Activity obj)
+        public void Update(activity obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "UPDATE sprBlock SET ActivityName = @ActivityName, Objects = @Objects, NumberOfZoom = @NumberOfZoom, ActivityType = @ActivityType, Description = @Description WHERE Id = @Id";
+                var sqlQuery = "UPDATE sprBlock SET activity_name = @activity_name, objects = @objects, number_of_zoom = @number_of_zoom, activity_type = @activity_type, description = @description WHERE id = @id";
             }
         }
     }

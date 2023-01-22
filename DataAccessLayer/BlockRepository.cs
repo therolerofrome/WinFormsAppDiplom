@@ -10,14 +10,14 @@ using System.Linq;
 
 namespace DataAccessLayer
 {
-    public class BlockRepository : IRepository<Block>
+    public class BlockRepository : IRepository<block>
     {
         string connectionString = null;
-        public void Create(Block obj)
+        public void Create(block obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "INSERT INTO OperationType (IdPhone, Description) VALUES(@IdPhone, @Description)";
+                var sqlQuery = "INSERT INTO operation_type (id_phone, description) VALUES(@id_phone, @description)";
             }
         }
 
@@ -25,31 +25,31 @@ namespace DataAccessLayer
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "DELETE FROM sprBlock WHERE Id = @id";
+                var sqlQuery = "DELETE FROM spr_block WHERE id = @id";
             }
         }
 
-        public Block GetObject(int id)
+        public block GetObject(int id)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Block>("SELECT * FROM sprBlock").FirstOrDefault();
+                return db.Query<block>("SELECT * FROM spr_block").FirstOrDefault();
             }
         }
 
-        public List<Block> GetObjects()
+        public List<block> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Block>("SELECT * FROM sprBlock").ToList();
+                return db.Query<block>("SELECT * FROM spr_block").ToList();
             }
         }
 
-        public void Update(Block obj)
+        public void Update(block obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "UPDATE sprBlock SET IdPhone = @IdPhone, Description = @Description WHERE Id = @Id";
+                var sqlQuery = "UPDATE spr_block SET id_phone = @id_phone, description = @description WHERE id = @id";
             }
         }
     }

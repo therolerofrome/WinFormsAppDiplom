@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace DataAccessLayer
 {
-    public class ObjectsRepository : IRepository<Objects>
+    public class ObjectsRepository : IRepository<objects>
     {
         string connectionString = null;
         public ObjectsRepository(string conn)
@@ -17,11 +17,11 @@ namespace DataAccessLayer
             connectionString = conn;
         }
 
-        public void Create(Objects obj)
+        public void Create(objects obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "INSERT INTO sprObjects (Name, Morph) VALUES(@Name, @Morph)";
+                var sqlQuery = "INSERT INTO spr_objects (name, morph) VALUES(@name, @morph)";
             }
         }
 
@@ -29,31 +29,31 @@ namespace DataAccessLayer
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "DELETE FROM sprObjects WHERE Id = @id";
+                var sqlQuery = "DELETE FROM spr_objects WHERE id = @id";
             }
         }
 
-        public Objects GetObject(int id)
+        public objects GetObject(int id)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Objects>("SELECT * FROM sprObjects").FirstOrDefault();
+                return db.Query<objects>("SELECT * FROM spr_objects").FirstOrDefault();
             }
         }
 
-        public List<Objects> GetObjects()
+        public List<objects> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<Objects>("SELECT * FROM sprObjects").ToList();
+                return db.Query<objects>("SELECT * FROM spr_objects").ToList();
             }
         }
 
-        public void Update(Objects obj)
+        public void Update(objects obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "UPDATE sprObjects SET Name = @Name, Morph = @Morph";
+                var sqlQuery = "UPDATE spr_objects SET name = @name, morph = @morph";
             }
         }
     }

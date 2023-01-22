@@ -9,14 +9,14 @@ using System.Linq;
 
 namespace DataAccessLayer
 {
-    internal class ActivityTypesRepository : IRepository<ActivityTypes>
+    internal class ActivityTypesRepository : IRepository<activity_types>
     {
         string connectionString = null;
         public ActivityTypesRepository(string conn)
         {
             connectionString = conn;
         }
-        public void Create(ActivityTypes obj)
+        public void Create(activity_types obj)
         {
             var sqlQuery = "INSERT INTO sprActiityTypes (Type) VALUES(@Type)";
         }
@@ -26,23 +26,23 @@ namespace DataAccessLayer
             var sqlQuery = "DELETE FROM sprActiityTypes WHERE Id = @id";
         }
 
-        public ActivityTypes GetObject(int id)
+        public activity_types GetObject(int id)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<ActivityTypes>("SELECT * FROM sprActiityTypes").FirstOrDefault();
+                return db.Query<activity_types>("SELECT * FROM sprActiityTypes").FirstOrDefault();
             }
         }
 
-        public List<ActivityTypes> GetObjects()
+        public List<activity_types> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<ActivityTypes>("SELECT * FROM sprActiityTypes").ToList();
+                return db.Query<activity_types>("SELECT * FROM sprActiityTypes").ToList();
             }
         }
 
-        public void Update(ActivityTypes obj)
+        public void Update(activity_types obj)
         {
             var sqlQuery = "UPDATE sprActiityTypes SET Type = @Type";
         }

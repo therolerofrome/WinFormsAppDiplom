@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class OperationTypeRepository : IRepository<OperationType>
+    public class OperationTypeRepository : IRepository<operation_type>
     {
         string connectionString = null;
         public OperationTypeRepository(string conn)
@@ -18,11 +18,11 @@ namespace DataAccessLayer
             connectionString = conn;
         }
 
-        public void Create(OperationType obj)
+        public void Create(operation_type obj)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "INSERT INTO sprOperationType (OperationName) VALUES(@OperationName)";
+                var sqlQuery = "INSERT INTO spr_operation_type (operation_name) VALUES(@operation_name)";
             }
         }
 
@@ -30,29 +30,29 @@ namespace DataAccessLayer
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                var sqlQuery = "DELETE FROM sprOperationType WHERE Id = @id";
+                var sqlQuery = "DELETE FROM spr_operation_type WHERE id = @id";
             }
         }
 
-        public OperationType GetObject(int id)
+        public operation_type GetObject(int id)
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<OperationType>("SELECT * FROM sprOperationType").FirstOrDefault();
+                return db.Query<operation_type>("SELECT * FROM spr_operation_type").FirstOrDefault();
             }
         }
 
-        public List<OperationType> GetObjects()
+        public List<operation_type> GetObjects()
         {
             using (IDbConnection db = new SqlConnection(connectionString))
             {
-                return db.Query<OperationType>("SELECT * FROM sprOperationType").ToList();
+                return db.Query<operation_type>("SELECT * FROM spr_operation_type").ToList();
             }
         }
 
-        public void Update(OperationType obj)
+        public void Update(operation_type obj)
         {
-            var sqlQuery = "UPDATE sprOperationType SET OperationName = @OperationName";
+            var sqlQuery = "UPDATE spr_operation_type SET operation_name = @operation_name";
         }
     }
 }
