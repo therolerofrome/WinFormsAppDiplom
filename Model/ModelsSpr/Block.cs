@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model.ModelsSpr
 {
-    public class Block
+    public class block
     {
-        int Id { get; set; }
-        int IdPhone { get; set; }
-        string Description { get; set; }
+        int id { get; set; }
+        int id_phone { get; set; }
+        string description { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class OperationType:AbstractSpr
+    public class operation_type:AbstractSpr
     {
         public int Id { get; set; }
         public string OperationName { get; set; }

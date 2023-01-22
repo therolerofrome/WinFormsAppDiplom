@@ -2,10 +2,10 @@
 
 namespace Model
 {
-    public class Objects:AbstractSpr
+    public class objects:AbstractSpr
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool Morph { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public bool morph { get; set; }
     }
 }
